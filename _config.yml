@@ -1,5 +1,4 @@
 title: Viktor Nilsson Blog
-tagline: Your sidekick in using GitHub Pages and blogs
 author:
   name: Viktor Nilsson
   email: viktornilsson91@live.se
@@ -13,3 +12,13 @@ description: >
 
 # Build settings
 remote_theme: jekyll/minima
+
+
+# Theme-specific settings
+
+header_pages:
+  home: index.md
+
+minima:
+  skin: dark
+
