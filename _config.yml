@@ -15,8 +15,8 @@ remote_theme: jekyll/minima
 
 # Theme-specific settings
 header_pages:
-  index.md
-  about.md
+  - index.md
+  - about.md
 
 minima:
   skin: dark
