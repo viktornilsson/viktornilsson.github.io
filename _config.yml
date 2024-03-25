@@ -15,7 +15,6 @@ remote_theme: jekyll/minima
 
 
 # Theme-specific settings
-
 header_pages:
   home: index.md
 
