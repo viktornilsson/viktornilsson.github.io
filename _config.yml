@@ -13,9 +13,10 @@ description: >
 # Build settings
 remote_theme: jekyll/minima
 
-
 # Theme-specific settings
 header_pages:
+  index.md
+  about.md
 
 minima:
   skin: dark
