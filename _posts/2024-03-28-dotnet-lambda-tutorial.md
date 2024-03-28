@@ -92,4 +92,40 @@ Now go to the `Code` tab and scroll down to `Runtime settings`.
 
 Then set proper Handler path. Right now: `DotNetLambdaFunction::DotNetLambdaFunction.Function::FunctionHandler`
 
+### 3. Now to the deploy step
 
+Check the YML file for deployment.
+
+https://github.com/viktornilsson/dotnet-lambda-template/blob/main/.github/workflows/deploy-aws-lambda.yml
+
+Here you need to create a github user in AWS and create access keys for it. Under `IAM > Users` and `Create User`.
+https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html
+
+
+```yml
+with:
+  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  aws-region: eu-west-1
+```
+
+Then save the secrets in your github project.
+![secrets](../images/github_secrets.png)
+
+After that double check that your name and folders are correct in this segment `./DotNetLambdaFunction`  and `name=DotNetLambdaFunction`.
+
+```yml
+- name: Make Zip File      
+    run: dotnet lambda package deploy.zip -pl ./DotNetLambdaFunction/
+    
+- name: Update Lambda Function
+    run: aws lambda update-function-code --function-name=DotNetLambdaFunction --zip-file=fileb://deploy.zip
+```
+
+Then lastly trigger the workflow.
+![alt text](../images/github_run_workflow.png)
+
+If everything go well in the build steps you should be able to trigger the lambda function via the AWS interface now.
+![alt text](../images/lambda_run_test.png)
+
+And the output should say "Hello World".
