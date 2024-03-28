@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Creating a .NET 8 Application and Running it in AWS Lambda"
-categories: AWS, .NET8
+categories: AWS
 ---
 
 ### Introduction
@@ -66,7 +66,7 @@ Login to AWS.
 
 Go to `Lambda > Functions` click `Create Function`
 
-![Create Function](../images/lambda_create_function.png)
+![Create Function](/images/lambda_create_function.png)
 
 Add a function name and select runtime .NET8.
 
@@ -110,7 +110,7 @@ with:
 ```
 
 Then save the secrets in your github project.
-![secrets](../images/github_secrets.png)
+![secrets](/images/github_secrets.png)
 
 After that double check that your name and folders are correct in this segment `./DotNetLambdaFunction`  and `name=DotNetLambdaFunction`.
 
@@ -123,9 +123,9 @@ After that double check that your name and folders are correct in this segment `
 ```
 
 Then lastly trigger the workflow.
-![alt text](../images/github_run_workflow.png)
+![alt text](/images/github_run_workflow.png)
 
 If everything go well in the build steps you should be able to trigger the lambda function via the AWS interface now.
-![alt text](../images/lambda_run_test.png)
+![alt text](/images/lambda_run_test.png)
 
 And the output should say "Hello World".
