@@ -24,6 +24,3 @@ header_pages:
 
 minima:
   skin: dark
-  social_links:
-    github: viktornilsson
-    linkedin: viktor-nilsson-dotnet
