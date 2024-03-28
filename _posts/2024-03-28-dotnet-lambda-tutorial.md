@@ -4,14 +4,13 @@ title: "Creating a .NET 8 Application and Running it in AWS Lambda"
 categories: AWS
 ---
 
-### Introduction
+## Introduction
 In this tutorial, we will guide you through the process of creating a .NET 8 application and deploying it to AWS Lambda. AWS Lambda is a serverless computing service that allows you to run code without provisioning or managing servers.
 
-### Prerequisites
+## Prerequisites
 - Basic knowledge of C# and .NET development.
 - An AWS account.
 - .NET 8 SDK installed.
-
 
 ## Steps
 
@@ -60,6 +59,8 @@ And the this is the project file.
 </Project>
 ```
 
+---
+
 ### 2. Now let's configure the AWS Lambda.
 
 Login to AWS.
@@ -72,25 +73,27 @@ Add a function name and select runtime .NET8.
 
 Then go to `Configuration`, and check each of the following tabs.
 
-#### General configuration
+##### General configuration
 - Specify the timeout, max limit 15 minutes.
 
-#### Permissions
+##### Permissions
 - Here you can set extra permissions, not needed for this.
 
-#### Environment Variables
+##### Environment Variables
 - Here you can add env vars that you can use in your app.
 
-#### VPC
+##### VPC
 - If you want to use static IPs for example. Then you need to create a custom VPC with a NAT gateways. But that's another chapter.
 
-#### Concurrency
+##### Concurrency
 - This settings depends on what your function will do. But if you want it to not run in parallel you need to throttle it with "Reserve concurrency=1".
 
 
 Now go to the `Code` tab and scroll down to `Runtime settings`.
 
 Then set proper Handler path. Right now: `DotNetLambdaFunction::DotNetLambdaFunction.Function::FunctionHandler`
+
+---
 
 ### 3. Now to the deploy step
 
@@ -104,13 +107,14 @@ https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html
 
 ```yml
 with:
-  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  aws-access-key-id: ${ secrets.AWS_ACCESS_KEY_ID }
+  aws-secret-access-key: ${ secrets.AWS_SECRET_ACCESS_KEY }
   aws-region: eu-west-1
 ```
 
 Then save the secrets in your github project.
 ![secrets](/images/github_secrets.png)
+
 
 After that double check that your name and folders are correct in this segment `./DotNetLambdaFunction`  and `name=DotNetLambdaFunction`.
 
@@ -125,7 +129,9 @@ After that double check that your name and folders are correct in this segment `
 Then lastly trigger the workflow.
 ![alt text](/images/github_run_workflow.png)
 
+
 If everything go well in the build steps you should be able to trigger the lambda function via the AWS interface now.
 ![alt text](/images/lambda_run_test.png)
+
 
 And the output should say "Hello World".
