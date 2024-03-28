@@ -83,7 +83,7 @@ Then go to `Configuration`, and check each of the following tabs.
 - Here you can add env vars that you can use in your app.
 
 ##### VPC
-- If you want to use static IPs for example. Then you need to create a custom VPC with a NAT gateways. But that's another chapter.
+- If you want to use static IPs for example. Then you need to create a custom VPC with a NAT gateway. But that's another chapter.
 
 ##### Concurrency
 - This settings depends on what your function will do. But if you want it to not run in parallel you need to throttle it with "Reserve concurrency=1".
