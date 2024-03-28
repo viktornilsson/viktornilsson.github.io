@@ -39,7 +39,7 @@ namespace DotNetLambdaFunction
 
 And the this is the project file.
 
-```cs
+```
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
@@ -95,7 +95,7 @@ Then set proper Handler path. Right now: `DotNetLambdaFunction::DotNetLambdaFunc
 
 ---
 
-### 3. Now to the deploy step
+### 3. Now too the deploy step
 
 Check the YML file for deployment.
 
@@ -135,3 +135,8 @@ If everything go well in the build steps you should be able to trigger the lambd
 
 
 And the output should say "Hello World".
+
+### 4. Conclusion
+This is a very simple, cheap and effective approach how to build your "machinery". 
+
+Just reach out if you have any inputs!
