@@ -95,7 +95,7 @@ Then set proper Handler path. Right now: `DotNetLambdaFunction::DotNetLambdaFunc
 
 ---
 
-### 3. Now too the deploy step
+### 3. Now to the deploy step
 
 Check the YML file for deployment.
 
