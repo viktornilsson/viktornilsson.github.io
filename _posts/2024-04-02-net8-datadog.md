@@ -10,7 +10,7 @@ Datadog is a monitoring system. Here we will show how you can setup simple loggi
 
 ## Prerequisites
 - Basic knowledge of C# and .NET development.
-- A .NET API Project with Swagger.
+- A .NET API Project.
 - Datadog Account.
 
 ## Steps
@@ -31,8 +31,8 @@ The following packages are required fot this setup.
 ### 2. Configure your Program.cs
 
 Setup your `Program.cs` something like this.
-The `CreateBootstrapLogger` method is called to initate a basic console logger before we are done wit the datadog configuration.
-We will continue to setup datadog on the `CreateBuilder` step.
+The `CreateBootstrapLogger` method is called to initate a basic console logger before we are done with the Datadog configuration.
+We will continue to setup Datadog on the `CreateBuilder` step.
 
 ```cs
 using Eton.Api.Web.StartupUtils;
@@ -93,15 +93,16 @@ public static class BuilderSetup
 
 And the method looks like this:
 Where `DatadogSettings` comes from the dependency injection. So it should be configured before this runs.
-The `MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)` steps can filter out unwanted logs.
-So you can only send te logs you want to Datadog.
 
-It's important to have a good system on how the name and categories your logs.
-You have:
-`source`
-`service`
-`host`
-`env`
+The `MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)` steps can filter out unwanted logs.
+So you only send te logs you want to Datadog.
+
+It's important to have a good system on how you should name and categorize your logs.
+You havthe following fields:
+- `source`
+- `service`
+- `host`
+- `env`
 
 Decide togheter how to do the naming, everything will be so much more easy to structure in Datadog if the is done properly.
 
@@ -146,5 +147,5 @@ private static void ConfigureDatadog(WebApplicationBuilder builder, IServiceProv
 
 ### 4. Conclusion
 If everything is done correct you should now se logs end up in your Datadog portal under the `Logs` tab.
-This is a very easy way to start monnitor your applications. It can then be built out with more nitty gritty stuff.
+This is a very easy way to start monitor your applications. It can then be built out with more nitty gritty stuff.
 Like APM metrics and so on.
