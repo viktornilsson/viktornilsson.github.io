@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Creating a .NET 8 Application and Running it in AWS Lambda"
+title: "Create a .NET 8 Application and run it in AWS Lambda"
 categories: AWS
 ---
 

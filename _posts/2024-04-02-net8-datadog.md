@@ -107,6 +107,7 @@ You havthe following fields:
 Decide togheter how to do the naming, everything will be so much more easy to structure in Datadog if the is done properly.
 
 The API keys can you find here in the Datadog portal:
+
 ![Datadog API keys](/images/datadog_keys.png)
 
 ```cs
