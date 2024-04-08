@@ -98,7 +98,7 @@ The `MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)` steps
 So you only send te logs you want to Datadog.
 
 It's important to have a good system on how you should name and categorize your logs.
-You havthe following fields:
+You have the following fields:
 - `source`
 - `service`
 - `host`
