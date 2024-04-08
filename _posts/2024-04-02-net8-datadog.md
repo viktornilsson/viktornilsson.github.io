@@ -6,7 +6,7 @@ categories: dotnet
 
 ## Introduction
 Datadog is a monitoring system. Here we will show how you can setup simple logging from your .NET8 application.
-![Datadog logs](/images/datadog_logs.png)
+![Datadog dashboard](/images/datadog_dashboard.png)
 
 ## Prerequisites
 - Basic knowledge of C# and .NET development.
@@ -150,3 +150,4 @@ private static void ConfigureDatadog(WebApplicationBuilder builder, IServiceProv
 If everything is done correct you should now se logs end up in your Datadog portal under the `Logs` tab.
 This is a very easy way to start monitor your applications. It can then be built out with more nitty gritty stuff.
 Like APM metrics and so on.
+![Datadog logs](/images/datadog_logs.png)
