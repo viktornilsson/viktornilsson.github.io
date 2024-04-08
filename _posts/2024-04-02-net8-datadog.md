@@ -6,6 +6,8 @@ categories: dotnet
 
 ## Introduction
 Datadog is a monitoring system. Here we will show how you can setup simple logging from your .NET8 application.
+
+*Example on a dashboard*
 ![Datadog dashboard](/images/datadog_dashboard.png)
 
 ## Prerequisites
