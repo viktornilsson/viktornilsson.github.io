@@ -8,6 +8,8 @@ categories: dotnet
 In this tutorial, we will guide you through securing your Swagger documentation using basic authentication in .NET. 
 By implementing a custom middleware, you can restrict access to your Swagger docs based on a username and password.
 
+![Basic Auth](/images/swagger_auth.png)
+
 ## Prerequisites
 - Basic knowledge of C# and .NET development.
 - A .NET API Project with Swagger.
@@ -89,3 +91,5 @@ app.UseSwaggerUI(c =>
 
 ### 3. Conclusion
 By following this tutorial, you have successfully secured your Swagger documentation behind basic authentication in C#. This extra layer of security helps protect your API documentation from unauthorized access. Feel free to customize the authentication logic to suit your specific requirements.
+
+![Swagger](/images/swagger.png)
