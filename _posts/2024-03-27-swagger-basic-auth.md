@@ -91,5 +91,3 @@ app.UseSwaggerUI(c =>
 
 ### 3. Conclusion
 By following this tutorial, you have successfully secured your Swagger documentation behind basic authentication in C#. This extra layer of security helps protect your API documentation from unauthorized access. Feel free to customize the authentication logic to suit your specific requirements.
-
-![Swagger](/images/swagger.png)
