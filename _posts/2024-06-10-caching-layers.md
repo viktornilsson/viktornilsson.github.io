@@ -15,13 +15,16 @@ In this tutorial, we'll explore different caching strategies to improve the perf
 ## Steps
 
 ### 1. Browser Caching
-Browser caching is the first line of defense for improving performance. By caching static assets like CSS, JavaScript, and images on the client-side, we can significantly reduce the number of requests to the server and improve page load times.
+Browser caching is the first line of defense for improving performance. By caching static assets like CSS, JavaScript, and images on the client-side, we can significantly reduce the number of requests to the server and 
+improve page load times.
+
 
 ### 2. CDN Caching
 A Content Delivery Network (CDN) can significantly improve performance by caching your application's content closer to your users. A CDN acts as a reverse proxy, caching your application's responses and serving them directly to users from its global edge network.
 
 *Response headers with insights from Fastly*
 ![Cache Hit](/images/cache_hit.png)
+
 
 ### 3. Server Caching
 While browser caching and CDN caching handle static assets and HTML responses, server caching can significantly improve the performance of dynamic content and API responses. You can use in-memory caching solutions like Redis or Memcached as a shared cache across multiple server instances.
@@ -80,7 +83,11 @@ This will make everything so much easier.
 
 If you request `pdp/product/shirt-62952`, you know the response will be exactly the same every time.
 
-#### GraphQL
+**Set-Cookie Header**   
+One example of this is when you create cookies server side and then send them via the Set-Cookie header in the response to the client. This will tell both the CDN and the Browser that this is unique stuff for the specific response and should not be passed.
+
+
+**GraphQL**  
 One pretty well used example where this gets more tricky is the usage of GraphQL. On GraphQL requests the url is always the same, the request parameters comes in the body instead. So to be able to cache this you need to do custom stuff to get a unique identifier from the body request. 
 
 
@@ -89,6 +96,7 @@ To be able to understand what's cached and not it's almost necessary to monitor 
 Fastly for example has built in support for this. https://docs.fastly.com/en/guides/logging-endpoints
 
 ![Fastly logs](/images/cache_logs.png)
+
 
 ### 6. Conclusion
 In this tutorial, we covered three main caching layers: Browser caching, CDN caching, and Server caching. By implementing these caching strategies, you can significantly improve the performance of your web application, reduce server load, and enhance the overall user experience.
