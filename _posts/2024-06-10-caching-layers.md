@@ -33,7 +33,7 @@ This is also the go-to solution for personalized data that needs to be behind au
 
 
 ### 4. Orchestration
-Using these principals standalone is pretty straight forward. But when combining them things usually starts to get a bit more complex.
+Using these principles standalone is pretty straight forward. But when combining them things usually starts to get a bit more complex.
 
 ![Cache flow](/images/cache_flow.png)
 
