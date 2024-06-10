@@ -20,6 +20,8 @@ Browser caching is the first line of defense for improving performance. By cachi
 ### 2. CDN Caching
 A Content Delivery Network (CDN) can significantly improve performance by caching your application's content closer to your users. A CDN acts as a reverse proxy, caching your application's responses and serving them directly to users from its global edge network.
 
+*Response headers with insights from Fastly*
+![Cache Hit](/images/cache_hit.png)
 
 ### 3. Server Caching
 While browser caching and CDN caching handle static assets and HTML responses, server caching can significantly improve the performance of dynamic content and API responses. You can use in-memory caching solutions like Redis or Memcached as a shared cache across multiple server instances.
@@ -33,10 +35,10 @@ Using these principals standalone is pretty straight forward. But when combining
 ![Cache flow](/images/cache_flow.png)
 
 #### 4.1 Product Data
-A real world scenarion could be fetching product data including real-time stock levels. To be able to handle this we need to think about all layers.
+A real world scenario could be fetching product data including real-time stock levels. To be able to handle this we need to think about all layers.
 
 1. Don't cache it in the browser, because we are not able to invalidate or purge cache browser content. Once cached it will be there until as long as the max-age property where set to.
-Fastly has a way to achive this, https://www.fastly.com/documentation/reference/http/http-headers/Surrogate-Control/.
+Fastly has a way to achieve this, https://www.fastly.com/documentation/reference/http/http-headers/Surrogate-Control/.
 
 2. We want to cache it either way in the CDN, but we want to be able to purge/invalidate the object.
 This can be done with surrogate-keys in Fastly. You tag your content, and then you can purge those tags from your backend applications. https://www.fastly.com/documentation/reference/http/http-headers/Surrogate-Key/
@@ -51,7 +53,7 @@ Surrogate-Key: product-62952
 And then purge the key "product-62952" when your stock import has been run.
 
 #### 4.2 Private Data
-Another example is private data, could be data like adress, wishlist, preferences etc.
+Another example is private data, could be data like address, wishlist, preferences etc.
 This data we absolutely don't want to store in the browser or in the CDN.
 
 If your for example has some endpoint similar to this, with Authentication on the server side.
@@ -66,13 +68,13 @@ The CDN will never handle the authorization logic by default.
 Cache-Control: private, no-cache, no-store, must-revalidate, max-age=0
 ```
 
-So be carefull with the headers you use on this kind of data. And if you need to cache it, then Server Caching is the way to go.
+So be careful with the headers you use on this kind of data. And if you need to cache it, then Server Caching is the way to go.
 
 #### 4.3 Unique data per URL
-To make it as easy as possible for yourselvs, try to have totally unique data per url.
+To make it as easy as possible for yourselves, try to have totally unique data per url.
 What I mean be that is to not have clear interfaces, the input data needed comes via the url, like query parameters etc. 
 
-We don't use hidden cookies, special logic with body parameters or something that can impact the uniqeness of the content returned.
+We don't use hidden cookies, special logic with body parameters or something that can impact the uniqueness of the content returned.
 
 This will make everything so much easier.
 
@@ -83,7 +85,7 @@ One pretty well used example where this gets more tricky is the usage of GraphQL
 
 
 ### 5. Monitoring
-To be able to understand what's cached and not it's almost necessary to monitor your requests/responsens some how.
+To be able to understand what's cached and not it's almost necessary to monitor your requests/responses somehow.
 Fastly for example has built in support for this. https://docs.fastly.com/en/guides/logging-endpoints
 
 ![Fastly logs](/images/cache_logs.png)
