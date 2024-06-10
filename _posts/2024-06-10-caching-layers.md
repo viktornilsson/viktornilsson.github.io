@@ -43,6 +43,11 @@ A real world scenario could be fetching product data including real-time stock l
 1. Don't cache it in the browser, because we are not able to invalidate or purge cache browser content. Once cached it will be there until as long as the max-age property where set to.
 Fastly has a way to achieve this, https://www.fastly.com/documentation/reference/http/http-headers/Surrogate-Control/.
 
+```
+Cache-Control: max-age=0
+Surrogate-Control: max-age=86400
+```
+
 2. We want to cache it either way in the CDN, but we want to be able to purge/invalidate the object.
 This can be done with surrogate-keys in Fastly. You tag your content, and then you can purge those tags from your backend applications. https://www.fastly.com/documentation/reference/http/http-headers/Surrogate-Key/
 
@@ -84,7 +89,7 @@ This will make everything so much easier.
 If you request `pdp/product/shirt-62952`, you know the response will be exactly the same every time.
 
 **Set-Cookie Header**   
-One example of this is when you create cookies server side and then send them via the Set-Cookie header in the response to the client. This will tell both the CDN and the Browser that this is unique stuff for the specific response and should not be passed.
+One problem to watch out for is when you create cookies server side and then send them via the Set-Cookie header to the client. This will tell both the CDN and the Browser that this is unique stuff for the specific response and should not be cached.
 
 
 **GraphQL**  
