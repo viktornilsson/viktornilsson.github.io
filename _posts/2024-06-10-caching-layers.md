@@ -100,7 +100,7 @@ One pretty well used example where this gets more tricky is the usage of GraphQL
 ### 5. Cache Busting
 Cache busting is a technique used in frontend development to ensure that when a website's assets (CSS, JavaScript, images, etc.) are updated, the browser fetches the latest versions instead of serving the outdated cached versions. This is important because browsers aggressively cache static files to improve performance, but this caching can lead to stale content being displayed after an update.
 
-**There are several common cache busting techniques:**
+**There are several common cache busting techniques:**  
 A) Query String Versioning: Append a unique query string (e.g., ?v=1.2.3) to the file URL. This tricks the browser into thinking it's a new resource and fetching the latest version.
 
 B) File Name Revving: Rename the file with a hash or version number (e.g., main.abc123.css) whenever its content changes. This forces the browser to download the new file with the updated name.
