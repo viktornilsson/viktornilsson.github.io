@@ -54,7 +54,8 @@ This can be done with surrogate-keys in Fastly. You tag your content, and then y
 For example you can set:
 
 ```
-Cache-Control: public, max-age=86400
+Cache-Control: max-age=0
+Surrogate-Control: max-age=86400
 Surrogate-Key: product-62952
 ```
 
