@@ -101,6 +101,11 @@ You wouldn't get this from any other guy
 Generate an MD5 hash of this concatenated string.
 Convert the hash to uppercase.
 
+I created a script in VS Code and debugged it to try to get the same output.
+After some time with a lot of help from Perplexity I got it to work!
+
+Now the harder part begun: Trying to implement the exact same logic in C#.
+
 ### 2.3. The Challenge of Implementation
 Translating this process from JavaScript to C# presented several challenges:
 - *MD5 Implementation*: Ensuring the C# MD5 function produced identical results to the JavaScript version.
@@ -116,6 +121,9 @@ Inputs:
 - Secret Lyrics
 
 Expected Output: `610A1D52E15A31C70DDA2B19E6DEF79D`
+
+The last piece that solved the puzzle was when we converted the JS input string and C# input string to hex values.
+Then we found out that the line endings where different.
 
 After multiple refinements, my C# implementation finally produced this exact output, confirming that I had successfully reverse-engineered the authentication mechanism.
 
@@ -204,3 +212,5 @@ This journey taught me valuable lessons:
 ## 9. Conclusion
 Reverse engineering Fotmob's API authentication was a challenging but rewarding experience. It highlighted the complexities of web security and the importance of thorough analysis when dealing with API integrations. As web developers, we should always strive to understand the systems we interact with, while maintaining ethical standards and respecting the work of others.
 Remember, the goal of such exercises should always be learning and improving our own systems, not exploiting or compromising others. Happy coding, and may your API calls always return 200 OK! 💪
+
+![Never gonna!](/images/fotmob_rick.webp)
