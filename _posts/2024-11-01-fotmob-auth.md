@@ -7,6 +7,8 @@ categories: security
 ## Introduction
 As the creator of a fantasy football site, I rely on Fotmob's API to fetch crucial XG (Expected Goals) and XA (Expected Assists) data. Recently, I encountered an unexpected hurdle: my API calls started receiving `Unauthorized` status codes. This sudden change in API behavior set me on an intriguing journey of reverse engineering and problem-solving.
 
+![Unauthorized](/images/fotmob_unauth.png)
+
 ## 1. The Challenge
 My fantasy football site's API calls to Fotmob suddenly started returning Unauthorized status codes.
 I realized that Fotmob's own frontend was still able to access the data successfully.
