@@ -90,7 +90,7 @@ The "X-Fm-Req" header is generated using the following steps:
 ```
 Stringify this JSON object.
 
-Concatenate the stringified JSON with the secret lyrics:
+2. Concatenate the stringified JSON with the secret lyrics:
 ```js
 const h = `We're no strangers to love
 You know the rules and so do I
