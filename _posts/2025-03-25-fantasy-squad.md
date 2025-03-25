@@ -171,13 +171,6 @@ This logic is now live and powers the **auto-pick** functionality on [xperty.se]
 - Modeling the problem correctly is more important than complex code.
 - Optimization tools can bring real value to data-driven applications.
 
-## 7. What’s Next?
-
-I’m exploring dynamic constraints for future features:
-- Selecting captains automatically
-- Including/excluding specific players
-- Adjusting based on upcoming fixtures
-
 Feel free to reach out if you're curious or building something similar!
 
 ---
